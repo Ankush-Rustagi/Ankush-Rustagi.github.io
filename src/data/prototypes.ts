@@ -45,14 +45,13 @@ export const prototypes: Prototype[] = [
     title: 'Verkada Customer Global Site Hierarchy Analysis',
     description:
       'Dashboard mapping the global site hierarchy across Verkada\'s customer base. Surfaces deployment patterns, geographic distribution, and org-level structure across commercial and enterprise accounts.',
-    href: 'https://reimagined-adventure-7pye1ok.pages.github.io/',
+    href: '/site-hierarchy-archetypes/',
     category: 'dashboard',
     status: 'live',
     createdDate: '2026-05-18',
     modifiedDate: '2026-05-18',
     gradient: 'maps',
     tags: ['sites', 'customers', 'hierarchy', 'command'],
-    external: true,
   },
   {
     slug: 'cursor-margin-analysis',
