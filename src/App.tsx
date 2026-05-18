@@ -65,10 +65,10 @@ function App() {
           Ankush Rustagi
         </p>
         <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight max-w-2xl mb-4">
-          Prototypes, canvases, and experiments.
+          PM work, made interactive.
         </h1>
         <p className="text-lg text-muted-foreground max-w-prose">
-          A small hub for things I'm building. Click any tile to try it.
+          Audits, analysis tools, and design canvases from my time on Verkada's Maps and Command products. Built in React so anyone can dig in.
         </p>
       </header>
 
