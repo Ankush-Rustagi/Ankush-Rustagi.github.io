@@ -1,7 +1,11 @@
 import { useMemo, useState } from "react"
 import { ArrowUpRight } from "lucide-react"
 
-import { prototypes, type PrototypeCategory } from "@/data/prototypes"
+import {
+  prototypes,
+  GRADIENTS,
+  type PrototypeCategory,
+} from "@/data/prototypes"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
@@ -24,13 +28,21 @@ const CATEGORY_LABELS: Record<PrototypeCategory, string> = {
 }
 
 const STATUS_STYLES: Record<string, string> = {
-  live: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20",
-  wip: "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20",
-  archived:
-    "bg-muted text-muted-foreground border-border",
+  live: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
+  wip: "bg-amber-500/15 text-amber-300 border-amber-500/30",
+  archived: "bg-muted text-muted-foreground border-border",
 }
 
 type Filter = "all" | PrototypeCategory
+
+function formatDate(iso: string): string {
+  const d = new Date(iso + "T00:00:00")
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  })
+}
 
 function App() {
   const [filter, setFilter] = useState<Filter>("all")
@@ -47,7 +59,7 @@ function App() {
   }, [])
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+    <main className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <header className="mb-12">
         <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-3">
           Ankush Rustagi
@@ -110,7 +122,7 @@ function App() {
           </nav>
 
           <section
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
             aria-label="Prototype list"
           >
             {visible.map((p) => (
@@ -121,35 +133,45 @@ function App() {
                 rel={p.external ? "noopener noreferrer" : undefined}
                 className="group block"
               >
-                <Card className="h-full transition-all hover:shadow-md hover:-translate-y-0.5 hover:border-foreground/30">
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                <Card className="h-full overflow-hidden p-0 gap-0 transition-all hover:shadow-lg hover:shadow-foreground/5 hover:-translate-y-0.5 hover:border-foreground/30">
+                  <div
+                    className="relative h-32 w-full overflow-hidden"
+                    style={{ background: GRADIENTS[p.gradient] }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                      <span className="text-[10px] font-medium uppercase tracking-wider text-white/90 bg-black/30 backdrop-blur-sm px-2 py-1 rounded">
                         {CATEGORY_LABELS[p.category]}
                       </span>
                       <Badge
                         variant="outline"
                         className={cn(
-                          "text-xs",
+                          "text-[10px] backdrop-blur-sm",
                           STATUS_STYLES[p.status]
                         )}
                       >
                         {p.status}
                       </Badge>
                     </div>
-                    <CardTitle className="text-lg">{p.title}</CardTitle>
-                    <CardDescription className="line-clamp-3">
+                  </div>
+
+                  <CardHeader className="pt-5 pb-3">
+                    <CardTitle className="text-lg leading-snug">
+                      {p.title}
+                    </CardTitle>
+                    <CardDescription className="line-clamp-3 mt-1.5">
                       {p.description}
                     </CardDescription>
                   </CardHeader>
+
                   {p.tags && p.tags.length > 0 && (
-                    <CardContent>
+                    <CardContent className="pb-3">
                       <div className="flex flex-wrap gap-1.5">
                         {p.tags.map((t) => (
                           <Badge
                             key={t}
                             variant="secondary"
-                            className="text-xs font-normal"
+                            className="text-[10px] font-normal"
                           >
                             {t}
                           </Badge>
@@ -157,12 +179,32 @@ function App() {
                       </div>
                     </CardContent>
                   )}
-                  <CardFooter className="mt-auto justify-between text-xs text-muted-foreground">
-                    <time dateTime={p.date}>{p.date}</time>
-                    <ArrowUpRight
-                      className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                      aria-hidden
-                    />
+
+                  <CardFooter className="mt-auto pt-3 pb-5 flex flex-col items-stretch gap-2">
+                    <div className="flex items-center justify-between text-[11px] text-muted-foreground">
+                      <span className="flex items-center gap-1.5">
+                        <span className="text-muted-foreground/60">
+                          Created
+                        </span>
+                        <time dateTime={p.createdDate}>
+                          {formatDate(p.createdDate)}
+                        </time>
+                      </span>
+                      <ArrowUpRight
+                        className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        aria-hidden
+                      />
+                    </div>
+                    <div className="flex items-center justify-between text-[11px] text-muted-foreground">
+                      <span className="flex items-center gap-1.5">
+                        <span className="text-muted-foreground/60">
+                          Modified
+                        </span>
+                        <time dateTime={p.modifiedDate}>
+                          {formatDate(p.modifiedDate)}
+                        </time>
+                      </span>
+                    </div>
                   </CardFooter>
                 </Card>
               </a>
