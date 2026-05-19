@@ -29,6 +29,9 @@ export interface Prototype {
   gradient: GradientTheme
   tags?: string[]
   external?: boolean
+  /** When true, the project is rendered in the highlighted "Featured" section
+   *  on the home page. Order within Featured follows array order. */
+  featured?: boolean
 }
 
 export const GRADIENTS: Record<GradientTheme, string> = {
@@ -43,10 +46,38 @@ export const GRADIENTS: Record<GradientTheme, string> = {
 
 export const prototypes: Prototype[] = [
   {
-    slug: 'verity-charts-playground',
-    title: 'Command Analytics Chart Audit: Highcharts & visx Storybook',
+    slug: 'maps-2-0-nav-audit',
+    title: 'Verkada Maps 2.0 Navigation Redesign',
     description:
-      'Interactive Storybook cataloguing every distinct chart shape used in customer-facing Command analytics. Covers Highcharts (columns, lines, areas, gauges, combos, threshold editor), visx, and Verity primitive components side-by-side.',
+      'Interactive IA prototype for Verkada Maps 2.0. Cross-walks Google Maps patterns to Verkada concepts (Locations, Collections, Sites, Layouts) and lets you click through every state of the proposed viewer and editor experience.',
+    href: '/maps-2-0-nav-audit/',
+    category: 'canvas',
+    status: 'live',
+    createdDate: '2026-05-15',
+    modifiedDate: '2026-05-18',
+    gradient: 'maps',
+    tags: ['maps', 'navigation', 'ia', 'command'],
+    featured: true,
+  },
+  {
+    slug: 'global-site-hierarchy',
+    title: 'Customer Site Hierarchy Atlas',
+    description:
+      'Dashboard mapping the spatial hierarchy of every Verkada customer org. Industry archetypes, depth distributions, geographic spread, and per-org Locations \u2192 Buildings \u2192 Floors \u2192 Areas structure across commercial and enterprise accounts.',
+    href: '/site-hierarchy-archetypes/',
+    category: 'dashboard',
+    status: 'live',
+    createdDate: '2026-05-18',
+    modifiedDate: '2026-05-18',
+    gradient: 'maps',
+    tags: ['sites', 'customers', 'hierarchy', 'command'],
+    featured: true,
+  },
+  {
+    slug: 'verity-charts-playground',
+    title: 'Command Analytics Charts Storybook',
+    description:
+      'Interactive Storybook cataloguing every chart shape used in customer-facing Command analytics. Highcharts (columns, lines, areas, gauges, combos, threshold editor), visx, and Verity primitives shown side-by-side with the data shapes that drive them.',
     href: 'https://ankush-rustagi.github.io/verity-charts-playground/',
     category: 'storybook',
     status: 'live',
@@ -55,25 +86,13 @@ export const prototypes: Prototype[] = [
     gradient: 'analytics',
     tags: ['analytics', 'charts', 'highcharts', 'visx', 'command', 'storybook'],
     external: true,
-  },
-  {
-    slug: 'global-site-hierarchy',
-    title: 'Verkada Customer Global Site Hierarchy Analysis',
-    description:
-      'Dashboard mapping the global site hierarchy across Verkada\'s customer base. Surfaces deployment patterns, geographic distribution, and org-level structure across commercial and enterprise accounts.',
-    href: '/site-hierarchy-archetypes/',
-    category: 'dashboard',
-    status: 'live',
-    createdDate: '2026-05-18',
-    modifiedDate: '2026-05-18',
-    gradient: 'maps',
-    tags: ['sites', 'customers', 'hierarchy', 'command'],
+    featured: true,
   },
   {
     slug: 'cursor-margin-analysis',
-    title: 'Cursor Enterprise: Usage, Cost & Margin Analysis',
+    title: 'Cursor Enterprise Cost & Margin Dashboard',
     description:
-      'Multi-tab dashboard analyzing Verkada\'s Cursor enterprise spend across 4,715 usage rows, 51 models, and 166.7B tokens. Covers budget by exec, retention, Claude Code actuals, adoption, and cost deep-dives.',
+      'Multi-tab dashboard analyzing Verkada\'s Cursor enterprise spend across 4,715 usage rows, 51 models, and 166.7B tokens. Budget by exec, retention, Claude Code actuals, adoption, and per-model cost deep-dives.',
     href: 'https://verkada.github.io/cursor-margin-analysis/',
     category: 'dashboard',
     status: 'live',
@@ -84,23 +103,10 @@ export const prototypes: Prototype[] = [
     external: true,
   },
   {
-    slug: 'maps-2-0-nav-audit',
-    title: 'Google Maps → Verkada Maps 2.0 navigation audit',
-    description:
-      'Comparative audit of Google Maps navigation patterns mapped against the Verkada Maps 2.0 information architecture. Answers which patterns earn their place in Command.',
-    href: '/maps-2-0-nav-audit/',
-    category: 'canvas',
-    status: 'live',
-    createdDate: '2026-05-15',
-    modifiedDate: '2026-05-18',
-    gradient: 'maps',
-    tags: ['maps', 'navigation', 'ia', 'command'],
-  },
-  {
     slug: 'floorplans-geo-field-inventory',
-    title: 'Floorplans Geo-Field Inventory & vAtlas Transform',
+    title: 'Floorplans Geo-Data Migration Plan',
     description:
-      'Data audit and transform spec for migrating Verkada floorplan coordinate data into the Maps 2.0 vAtlas pipeline. 99.8% geo-field coverage across all floorplan entities.',
+      'Data audit and transform spec for migrating Verkada floorplan coordinate data into the Maps 2.0 vAtlas pipeline. 99.8% geo-field coverage across all floorplan entities, with field-by-field mapping rules.',
     href: '/floorplans-geo-field-inventory/',
     category: 'canvas',
     status: 'live',
@@ -111,9 +117,9 @@ export const prototypes: Prototype[] = [
   },
   {
     slug: 'hex-styling-configurator',
-    title: 'Verkada HEX Styling Configurator',
+    title: 'Verkada HEX Brand Token Configurator',
     description:
-      'Interactive configurator mapping Verkada\'s brand color system to Command UI tokens. Five product-line palettes (20 colors each) with live component preview and token export.',
+      'Interactive configurator mapping Verkada\'s brand color system to Command UI tokens. Five product-line palettes (20 colors each) with live component preview and copy-ready token export.',
     href: '/hex-styling-configurator/',
     category: 'tool',
     status: 'live',
@@ -124,7 +130,7 @@ export const prototypes: Prototype[] = [
   },
   {
     slug: 'agents-md-router-map',
-    title: 'AGENTS.md Router Map',
+    title: 'AGENTS.md Workflow Router',
     description:
       'Visual DAG of how the Verkada PM workspace AGENTS.md routes every task type to the right workflow, standards file, and output format. Includes a path explorer and decision table.',
     href: '/agents-md-router-map/',

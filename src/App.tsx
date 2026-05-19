@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Sparkles } from "lucide-react"
 
 import {
   prototypes,
   GRADIENTS,
+  type Prototype,
   type PrototypeCategory,
 } from "@/data/prototypes"
 import { Badge } from "@/components/ui/badge"
@@ -44,6 +45,104 @@ function formatDate(iso: string): string {
   })
 }
 
+interface ProjectCardProps {
+  p: Prototype
+  featured?: boolean
+}
+
+function ProjectCard({ p, featured = false }: ProjectCardProps) {
+  return (
+    <a
+      key={p.slug}
+      href={p.href}
+      target={p.external ? "_blank" : undefined}
+      rel={p.external ? "noopener noreferrer" : undefined}
+      className="group block"
+    >
+      <Card
+        className={cn(
+          "h-full overflow-hidden p-0 gap-0 transition-all hover:shadow-lg hover:shadow-foreground/5 hover:-translate-y-0.5 hover:border-foreground/30",
+          featured && "ring-1 ring-amber-500/30 border-amber-500/30",
+        )}
+      >
+        <div
+          className={cn(
+            "relative w-full overflow-hidden",
+            featured ? "h-44" : "h-32",
+          )}
+          style={{ background: GRADIENTS[p.gradient] }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+          <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+            <span className="text-[10px] font-medium uppercase tracking-wider text-white/90 bg-black/30 backdrop-blur-sm px-2 py-1 rounded">
+              {CATEGORY_LABELS[p.category]}
+            </span>
+            <Badge
+              variant="outline"
+              className={cn(
+                "text-[10px] backdrop-blur-sm",
+                STATUS_STYLES[p.status],
+              )}
+            >
+              {p.status}
+            </Badge>
+          </div>
+        </div>
+
+        <CardHeader className="pt-5 pb-3">
+          <CardTitle
+            className={cn(featured ? "text-xl" : "text-lg", "leading-snug")}
+          >
+            {p.title}
+          </CardTitle>
+          <CardDescription
+            className={cn(featured ? "line-clamp-4" : "line-clamp-3", "mt-1.5")}
+          >
+            {p.description}
+          </CardDescription>
+        </CardHeader>
+
+        {p.tags && p.tags.length > 0 && (
+          <CardContent className="pb-3">
+            <div className="flex flex-wrap gap-1.5">
+              {p.tags.map((t) => (
+                <Badge
+                  key={t}
+                  variant="secondary"
+                  className="text-[10px] font-normal"
+                >
+                  {t}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+        )}
+
+        <CardFooter className="mt-auto pt-3 pb-5 flex flex-col items-stretch gap-2">
+          <div className="flex items-center justify-between text-[11px] text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <span className="text-muted-foreground/60">Created</span>
+              <time dateTime={p.createdDate}>{formatDate(p.createdDate)}</time>
+            </span>
+            <ArrowUpRight
+              className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden
+            />
+          </div>
+          <div className="flex items-center justify-between text-[11px] text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <span className="text-muted-foreground/60">Modified</span>
+              <time dateTime={p.modifiedDate}>
+                {formatDate(p.modifiedDate)}
+              </time>
+            </span>
+          </div>
+        </CardFooter>
+      </Card>
+    </a>
+  )
+}
+
 function App() {
   const [filter, setFilter] = useState<Filter>("all")
 
@@ -51,6 +150,15 @@ function App() {
     if (filter === "all") return prototypes
     return prototypes.filter((p) => p.category === filter)
   }, [filter])
+
+  const featuredVisible = useMemo(
+    () => visible.filter((p) => p.featured),
+    [visible],
+  )
+  const restVisible = useMemo(
+    () => visible.filter((p) => !p.featured),
+    [visible],
+  )
 
   const categoriesPresent = useMemo(() => {
     const set = new Set<PrototypeCategory>()
@@ -121,95 +229,53 @@ function App() {
             })}
           </nav>
 
-          <section
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-            aria-label="Prototype list"
-          >
-            {visible.map((p) => (
-              <a
-                key={p.slug}
-                href={p.href}
-                target={p.external ? "_blank" : undefined}
-                rel={p.external ? "noopener noreferrer" : undefined}
-                className="group block"
-              >
-                <Card className="h-full overflow-hidden p-0 gap-0 transition-all hover:shadow-lg hover:shadow-foreground/5 hover:-translate-y-0.5 hover:border-foreground/30">
-                  <div
-                    className="relative h-32 w-full overflow-hidden"
-                    style={{ background: GRADIENTS[p.gradient] }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                      <span className="text-[10px] font-medium uppercase tracking-wider text-white/90 bg-black/30 backdrop-blur-sm px-2 py-1 rounded">
-                        {CATEGORY_LABELS[p.category]}
-                      </span>
-                      <Badge
-                        variant="outline"
-                        className={cn(
-                          "text-[10px] backdrop-blur-sm",
-                          STATUS_STYLES[p.status]
-                        )}
-                      >
-                        {p.status}
-                      </Badge>
-                    </div>
-                  </div>
+          {featuredVisible.length > 0 && (
+            <section className="mb-10" aria-label="Featured projects">
+              <div className="flex items-baseline gap-3 mb-4">
+                <h2 className="text-sm font-semibold uppercase tracking-widest text-amber-300/90 inline-flex items-center gap-1.5">
+                  <Sparkles className="size-3.5" aria-hidden />
+                  Featured
+                </h2>
+                <span className="text-xs text-muted-foreground">
+                  Anchor projects for Maps 2.0, customer site structure, and Command analytics charts.
+                </span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {featuredVisible.map((p) => (
+                  <ProjectCard key={p.slug} p={p} featured />
+                ))}
+              </div>
+            </section>
+          )}
 
-                  <CardHeader className="pt-5 pb-3">
-                    <CardTitle className="text-lg leading-snug">
-                      {p.title}
-                    </CardTitle>
-                    <CardDescription className="line-clamp-3 mt-1.5">
-                      {p.description}
-                    </CardDescription>
-                  </CardHeader>
+          {restVisible.length > 0 && (
+            <section aria-label="All other projects">
+              {featuredVisible.length > 0 && (
+                <div className="flex items-baseline gap-3 mb-4">
+                  <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                    More work
+                  </h2>
+                  <span className="text-xs text-muted-foreground/70">
+                    Other audits, tools, and one-off prototypes.
+                  </span>
+                </div>
+              )}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {restVisible.map((p) => (
+                  <ProjectCard key={p.slug} p={p} />
+                ))}
+              </div>
+            </section>
+          )}
 
-                  {p.tags && p.tags.length > 0 && (
-                    <CardContent className="pb-3">
-                      <div className="flex flex-wrap gap-1.5">
-                        {p.tags.map((t) => (
-                          <Badge
-                            key={t}
-                            variant="secondary"
-                            className="text-[10px] font-normal"
-                          >
-                            {t}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  )}
-
-                  <CardFooter className="mt-auto pt-3 pb-5 flex flex-col items-stretch gap-2">
-                    <div className="flex items-center justify-between text-[11px] text-muted-foreground">
-                      <span className="flex items-center gap-1.5">
-                        <span className="text-muted-foreground/60">
-                          Created
-                        </span>
-                        <time dateTime={p.createdDate}>
-                          {formatDate(p.createdDate)}
-                        </time>
-                      </span>
-                      <ArrowUpRight
-                        className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        aria-hidden
-                      />
-                    </div>
-                    <div className="flex items-center justify-between text-[11px] text-muted-foreground">
-                      <span className="flex items-center gap-1.5">
-                        <span className="text-muted-foreground/60">
-                          Modified
-                        </span>
-                        <time dateTime={p.modifiedDate}>
-                          {formatDate(p.modifiedDate)}
-                        </time>
-                      </span>
-                    </div>
-                  </CardFooter>
-                </Card>
-              </a>
-            ))}
-          </section>
+          {featuredVisible.length === 0 && restVisible.length === 0 && (
+            <Card className="border-dashed">
+              <CardHeader>
+                <CardTitle>No projects in this category.</CardTitle>
+                <CardDescription>Try another filter.</CardDescription>
+              </CardHeader>
+            </Card>
+          )}
         </>
       )}
 
