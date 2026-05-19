@@ -72,7 +72,27 @@ function ProjectCard({ p, featured = false }: ProjectCardProps) {
           )}
           style={{ background: GRADIENTS[p.gradient] }}
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+          {/* Header image. Gradient shows behind it while the image loads
+              and fills any letterboxing on extreme aspect ratios.
+              object-top keeps screenshot titles visible when we crop. */}
+          {p.image && (
+            <img
+              src={p.image}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover object-top"
+            />
+          )}
+          {/* Bottom fade. Softer when there's an image so the artwork
+              stays visible; tighter on gradient-only cards so the pills
+              still pop. */}
+          <div
+            className={cn(
+              "absolute inset-0 bg-gradient-to-t via-transparent to-transparent",
+              p.image ? "from-card/60" : "from-card",
+            )}
+          />
           <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
             <span className="text-[10px] font-medium uppercase tracking-wider text-white/90 bg-black/30 backdrop-blur-sm px-2 py-1 rounded">
               {CATEGORY_LABELS[p.category]}

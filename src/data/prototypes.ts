@@ -45,6 +45,13 @@ export interface Prototype {
   /** When true, the project is rendered in the highlighted "Featured" section
    *  on the home page. Order within Featured follows array order. */
   featured?: boolean
+  /** Optional header image. Path is relative to the site root (served from
+   *  /public). When set, the card replaces the gradient header with this
+   *  image (object-fit: cover). The gradient still shows behind the image
+   *  while it loads, and the bottom fade-to-card overlay is preserved so
+   *  the pills remain readable. Recommended aspect ratio ~2.6:1 for
+   *  featured cards (h-44) and ~3.4:1 for regular cards (h-32). */
+  image?: string
 }
 
 export const GRADIENTS: Record<GradientTheme, string> = {
@@ -71,6 +78,7 @@ export const prototypes: Prototype[] = [
     gradient: 'maps',
     tags: ['maps', 'navigation', 'ia', 'command'],
     featured: true,
+    image: '/project-headers/maps-2-0-nav-audit.png',
   },
   {
     slug: 'global-site-hierarchy',
@@ -85,6 +93,7 @@ export const prototypes: Prototype[] = [
     gradient: 'maps',
     tags: ['sites', 'customers', 'hierarchy', 'command'],
     featured: true,
+    image: '/project-headers/global-site-hierarchy.png',
   },
   {
     slug: 'verity-charts-playground',
@@ -100,6 +109,7 @@ export const prototypes: Prototype[] = [
     tags: ['analytics', 'charts', 'highcharts', 'visx', 'command', 'storybook'],
     external: true,
     featured: true,
+    image: '/project-headers/verity-charts-playground.png',
   },
   {
     slug: 'cursor-margin-analysis',
@@ -114,6 +124,7 @@ export const prototypes: Prototype[] = [
     gradient: 'cursor',
     tags: ['cursor', 'llm', 'cost', 'analytics'],
     external: true,
+    image: '/project-headers/cursor-margin-analysis.png',
   },
   {
     slug: 'floorplans-geo-field-inventory',
@@ -127,6 +138,7 @@ export const prototypes: Prototype[] = [
     modifiedDate: '2026-05-18',
     gradient: 'floorplans',
     tags: ['floorplans', 'maps', 'geo', 'vatlas'],
+    image: '/project-headers/floorplans-geo-field-inventory.png',
   },
   {
     slug: 'hex-styling-configurator',
@@ -140,6 +152,7 @@ export const prototypes: Prototype[] = [
     modifiedDate: '2026-05-18',
     gradient: 'hex',
     tags: ['hex', 'design-system', 'tokens', 'color'],
+    image: '/project-headers/hex-styling-configurator.png',
   },
   {
     slug: 'agents-md-router-map',
@@ -153,5 +166,6 @@ export const prototypes: Prototype[] = [
     modifiedDate: '2026-05-18',
     gradient: 'router',
     tags: ['agents', 'ai', 'routing', 'workspace'],
+    image: '/project-headers/agents-md-router-map.png',
   },
 ]
