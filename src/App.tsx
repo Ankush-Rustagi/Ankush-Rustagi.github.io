@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react"
-import { ArrowUpRight, Sparkles } from "lucide-react"
+import { ArrowUpRight, Search, Sparkles, X } from "lucide-react"
 
 import {
   prototypes,
@@ -145,11 +145,24 @@ function ProjectCard({ p, featured = false }: ProjectCardProps) {
 
 function App() {
   const [filter, setFilter] = useState<Filter>("all")
+  const [query, setQuery] = useState("")
 
   const visible = useMemo(() => {
-    if (filter === "all") return prototypes
-    return prototypes.filter((p) => p.category === filter)
-  }, [filter])
+    const q = query.trim().toLowerCase()
+    return prototypes.filter((p) => {
+      if (filter !== "all" && p.category !== filter) return false
+      if (!q) return true
+      const haystack = [
+        p.title,
+        p.description,
+        ...(p.tags ?? []),
+        CATEGORY_LABELS[p.category],
+      ]
+        .join(" ")
+        .toLowerCase()
+      return haystack.includes(q)
+    })
+  }, [filter, query])
 
   const featuredVisible = useMemo(
     () => visible.filter((p) => p.featured),
@@ -199,35 +212,85 @@ function App() {
         </Card>
       ) : (
         <>
-          <nav
-            className="flex flex-wrap gap-2 mb-8"
-            aria-label="Filter prototypes by category"
-          >
-            <Button
-              variant={filter === "all" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setFilter("all")}
-              className="rounded-full"
-            >
-              All ({prototypes.length})
-            </Button>
-            {categoriesPresent.map((cat) => {
-              const count = prototypes.filter(
-                (p) => p.category === cat
-              ).length
-              return (
-                <Button
-                  key={cat}
-                  variant={filter === cat ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setFilter(cat)}
-                  className="rounded-full"
+          <div className="flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-4 mb-8">
+            {/* Search box (left-aligned) */}
+            <div className="relative lg:w-80 shrink-0">
+              <Search
+                className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground/70 pointer-events-none"
+                aria-hidden
+              />
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder={"Search title, description, tag\u2026"}
+                aria-label="Search projects"
+                className={cn(
+                  "w-full h-9 rounded-full bg-card/80 border pl-9 pr-9 text-sm placeholder:text-muted-foreground/60",
+                  "transition-colors focus-visible:outline-none",
+                  query
+                    ? "border-amber-500/50 ring-2 ring-amber-500/20"
+                    : "border-border focus-visible:border-foreground/40 focus-visible:ring-2 focus-visible:ring-foreground/10",
+                )}
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  aria-label="Clear search"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 size-6 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground inline-flex items-center justify-center transition-colors"
                 >
-                  {CATEGORY_LABELS[cat]} ({count})
-                </Button>
-              )
-            })}
-          </nav>
+                  <X className="size-3.5" aria-hidden />
+                </button>
+              )}
+            </div>
+
+            {/* Filter pills (right-aligned) */}
+            <nav
+              className="flex flex-wrap gap-2 lg:ml-auto lg:justify-end"
+              aria-label="Filter prototypes by category"
+            >
+              <Button
+                variant={filter === "all" ? "default" : "outline"}
+                size="sm"
+                onClick={() => setFilter("all")}
+                className="rounded-full"
+              >
+                All ({prototypes.length})
+              </Button>
+              {categoriesPresent.map((cat) => {
+                const count = prototypes.filter(
+                  (p) => p.category === cat
+                ).length
+                return (
+                  <Button
+                    key={cat}
+                    variant={filter === cat ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => setFilter(cat)}
+                    className="rounded-full"
+                  >
+                    {CATEGORY_LABELS[cat]} ({count})
+                  </Button>
+                )
+              })}
+            </nav>
+          </div>
+
+          {/* Search results summary */}
+          {query && (
+            <p className="text-xs text-muted-foreground mb-5 -mt-3">
+              {visible.length === 0
+                ? "No matches"
+                : `${visible.length} ${visible.length === 1 ? "match" : "matches"}`}{" "}
+              for <span className="text-amber-300 font-medium">&ldquo;{query}&rdquo;</span>
+              {filter !== "all" && (
+                <>
+                  {" "}in <span className="text-foreground">{CATEGORY_LABELS[filter]}</span>
+                </>
+              )}
+            </p>
+          )}
 
           {featuredVisible.length > 0 && (
             <section className="mb-10" aria-label="Featured projects">
@@ -271,8 +334,12 @@ function App() {
           {featuredVisible.length === 0 && restVisible.length === 0 && (
             <Card className="border-dashed">
               <CardHeader>
-                <CardTitle>No projects in this category.</CardTitle>
-                <CardDescription>Try another filter.</CardDescription>
+                <CardTitle>Nothing matches.</CardTitle>
+                <CardDescription>
+                  {query
+                    ? "Try a different search term, or clear the search."
+                    : "Try another filter."}
+                </CardDescription>
               </CardHeader>
             </Card>
           )}
