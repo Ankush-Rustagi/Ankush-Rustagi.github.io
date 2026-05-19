@@ -14,6 +14,7 @@ export type GradientTheme =
   | 'floorplans'
   | 'cursor'
   | 'router'
+  | 'analytics'
   | 'default'
 
 export interface Prototype {
@@ -36,10 +37,25 @@ export const GRADIENTS: Record<GradientTheme, string> = {
   floorplans: 'radial-gradient(ellipse 70% 60% at 30% 30%, oklch(0.6 0.16 195 / 0.85), transparent), radial-gradient(ellipse 60% 50% at 75% 75%, oklch(0.7 0.18 70 / 0.7), transparent), linear-gradient(135deg, oklch(0.25 0.06 195), oklch(0.25 0.06 60))',
   cursor: 'radial-gradient(ellipse 70% 60% at 25% 25%, oklch(0.55 0.22 290 / 0.9), transparent), radial-gradient(ellipse 60% 50% at 80% 80%, oklch(0.65 0.22 340 / 0.7), transparent), linear-gradient(135deg, oklch(0.22 0.08 290), oklch(0.2 0.1 320))',
   router: 'radial-gradient(ellipse 70% 60% at 30% 25%, oklch(0.6 0.18 150 / 0.85), transparent), radial-gradient(ellipse 60% 55% at 75% 75%, oklch(0.55 0.2 265 / 0.7), transparent), linear-gradient(135deg, oklch(0.22 0.07 150), oklch(0.22 0.08 265))',
+  analytics: 'radial-gradient(ellipse 70% 60% at 20% 70%, oklch(0.55 0.22 260 / 0.85), transparent), radial-gradient(ellipse 60% 50% at 80% 25%, oklch(0.65 0.2 35 / 0.7), transparent), linear-gradient(135deg, oklch(0.22 0.09 250), oklch(0.24 0.08 30))',
   default: 'linear-gradient(135deg, oklch(0.25 0 0), oklch(0.18 0 0))',
 }
 
 export const prototypes: Prototype[] = [
+  {
+    slug: 'verity-charts-playground',
+    title: 'Command Analytics Chart Audit: Highcharts & visx Storybook',
+    description:
+      'Interactive Storybook cataloguing every distinct chart shape used in customer-facing Command analytics. Covers Highcharts (columns, lines, areas, gauges, combos, threshold editor), visx, and Verity primitive components side-by-side.',
+    href: 'https://ankush-rustagi.github.io/verity-charts-playground/',
+    category: 'storybook',
+    status: 'live',
+    createdDate: '2026-05-19',
+    modifiedDate: '2026-05-19',
+    gradient: 'analytics',
+    tags: ['analytics', 'charts', 'highcharts', 'visx', 'command', 'storybook'],
+    external: true,
+  },
   {
     slug: 'global-site-hierarchy',
     title: 'Verkada Customer Global Site Hierarchy Analysis',
