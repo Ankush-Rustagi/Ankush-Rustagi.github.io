@@ -197,7 +197,9 @@ function App() {
           PM work, made interactive.
         </h1>
         <p className="text-lg text-muted-foreground max-w-prose">
-          Audits, analysis tools, and design canvases from my time on Verkada's Maps and Command products. Built in React so anyone can dig in.
+          Audits, analysis tools, and design canvases from a tokenmaxxing PM.
+
+          Built in React so anyone can dig in.
         </p>
       </header>
 
