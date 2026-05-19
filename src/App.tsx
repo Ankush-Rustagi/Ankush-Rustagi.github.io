@@ -198,7 +198,8 @@ function App() {
         </h1>
         <p className="text-lg text-muted-foreground max-w-prose">
           Audits, analysis tools, and design canvases from a tokenmaxxing PM.
-
+        </p>
+        <p className="text-lg text-muted-foreground max-w-prose">
           Built in React so anyone can dig in.
         </p>
       </header>
