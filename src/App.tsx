@@ -89,9 +89,17 @@ function ProjectCard({ p, featured = false }: ProjectCardProps) {
           </div>
         </div>
 
-        <CardHeader className="pt-5 pb-3">
+        <CardHeader className="pt-5 pb-3 min-w-0">
+          {/* Card titles must fit on a single line at the default 3-column
+              desktop layout. Featured \u2264 30 chars, regular \u2264 34 chars.
+              See the "Card title length" rule in AGENTS.md.
+              The CSS guard below is a backstop; titles should not rely on it. */}
           <CardTitle
-            className={cn(featured ? "text-xl" : "text-lg", "leading-snug")}
+            className={cn(
+              featured ? "text-xl" : "text-lg",
+              "leading-snug whitespace-nowrap overflow-hidden text-ellipsis min-w-0",
+            )}
+            title={p.title}
           >
             {p.title}
           </CardTitle>

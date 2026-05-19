@@ -1,3 +1,16 @@
+// =============================================================================
+// Card title length rule
+// -----------------------------------------------------------------------------
+// Titles MUST fit on a single line at the default desktop 3-column grid.
+// Featured cards (text-xl):  max 30 characters
+// Regular cards (text-lg):   max 34 characters
+//
+// The renderer in App.tsx enforces single-line + ellipsis as a CSS backstop,
+// but titles should never depend on that backstop. Always shorten the title
+// to fit the budget. See AGENTS.md ("Portfolio card title length") for the
+// authoritative rule.
+// =============================================================================
+
 export type PrototypeStatus = 'live' | 'wip' | 'archived'
 
 export type PrototypeCategory =
@@ -47,7 +60,7 @@ export const GRADIENTS: Record<GradientTheme, string> = {
 export const prototypes: Prototype[] = [
   {
     slug: 'maps-2-0-nav-audit',
-    title: 'Verkada Maps 2.0 Navigation Redesign',
+    title: 'Maps 2.0 Navigation Redesign',
     description:
       'Interactive IA prototype for Verkada Maps 2.0. Cross-walks Google Maps patterns to Verkada concepts (Locations, Collections, Sites, Layouts) and lets you click through every state of the proposed viewer and editor experience.',
     href: '/maps-2-0-nav-audit/',
@@ -75,7 +88,7 @@ export const prototypes: Prototype[] = [
   },
   {
     slug: 'verity-charts-playground',
-    title: 'Command Analytics Charts Storybook',
+    title: 'Command Analytics Charts',
     description:
       'Interactive Storybook cataloguing every chart shape used in customer-facing Command analytics. Highcharts (columns, lines, areas, gauges, combos, threshold editor), visx, and Verity primitives shown side-by-side with the data shapes that drive them.',
     href: 'https://ankush-rustagi.github.io/verity-charts-playground/',
@@ -90,7 +103,7 @@ export const prototypes: Prototype[] = [
   },
   {
     slug: 'cursor-margin-analysis',
-    title: 'Cursor Enterprise Cost & Margin Dashboard',
+    title: 'Cursor Enterprise Cost Dashboard',
     description:
       'Multi-tab dashboard analyzing Verkada\'s Cursor enterprise spend across 4,715 usage rows, 51 models, and 166.7B tokens. Budget by exec, retention, Claude Code actuals, adoption, and per-model cost deep-dives.',
     href: 'https://verkada.github.io/cursor-margin-analysis/',
@@ -117,7 +130,7 @@ export const prototypes: Prototype[] = [
   },
   {
     slug: 'hex-styling-configurator',
-    title: 'Verkada HEX Brand Token Configurator',
+    title: 'HEX Brand Token Configurator',
     description:
       'Interactive configurator mapping Verkada\'s brand color system to Command UI tokens. Five product-line palettes (20 colors each) with live component preview and copy-ready token export.',
     href: '/hex-styling-configurator/',
