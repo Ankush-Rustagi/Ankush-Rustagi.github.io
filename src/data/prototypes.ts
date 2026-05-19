@@ -70,7 +70,7 @@ export const prototypes: Prototype[] = [
     title: 'Maps 2.0 Navigation Redesign',
     description:
       'Interactive IA prototype for Verkada Maps 2.0. Cross-walks Google Maps patterns to Verkada concepts (Locations, Collections, Sites, Layouts) and lets you click through every state of the proposed viewer and editor experience.',
-    href: '/maps-2-0-nav-audit/#full',
+    href: '/maps-2-0-nav-audit/',
     category: 'canvas',
     status: 'live',
     createdDate: '2026-05-15',
@@ -85,7 +85,7 @@ export const prototypes: Prototype[] = [
     title: 'Customer Site Hierarchy Atlas',
     description:
       'Dashboard mapping the spatial hierarchy of every Verkada customer org. Industry archetypes, depth distributions, geographic spread, and per-org Locations \u2192 Buildings \u2192 Floors \u2192 Areas structure across commercial and enterprise accounts.',
-    href: '/site-hierarchy-archetypes/#customers-at-a-glance',
+    href: '/site-hierarchy-archetypes/',
     category: 'dashboard',
     status: 'live',
     createdDate: '2026-05-18',
