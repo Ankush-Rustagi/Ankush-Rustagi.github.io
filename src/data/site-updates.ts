@@ -7,6 +7,8 @@ export const lastSiteEditDate = '2026-05-18'
 export interface SiteUpdate {
   date: string
   title: string
+  /** Person who authored the update (shown in the home banner). */
+  author?: string
   href?: string
   external?: boolean
   bullets: string[]
@@ -16,7 +18,8 @@ export const siteUpdates: SiteUpdate[] = [
   {
     date: '2026-05-20',
     title: 'Command Analytics Charts (Storybook)',
-    href: 'https://ankush-rustagi.github.io/verity-charts-playground/',
+    author: 'Vivien Ding',
+    href: 'https://ankush-rustagi.github.io/verity-charts-playground/?path=/docs/about--docs',
     external: true,
     bullets: [
       'VeritySimPrimitives layer: live simulated primitives wired to doc-27 color tokens (categorical, sequential, diverging, status).',

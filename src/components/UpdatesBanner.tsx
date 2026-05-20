@@ -40,24 +40,31 @@ export function UpdatesBanner() {
               >
                 {formatDate(update.date)}
               </time>
-              {update.href ? (
-                <a
-                  href={update.href}
-                  target={update.external ? '_blank' : undefined}
-                  rel={update.external ? 'noopener noreferrer' : undefined}
-                  className={cn(
-                    'text-sm font-semibold text-foreground inline-flex items-center gap-1',
-                    'hover:text-amber-200 transition-colors',
-                  )}
-                >
-                  {update.title}
-                  <ArrowUpRight className="size-3.5 shrink-0" aria-hidden />
-                </a>
-              ) : (
-                <span className="text-sm font-semibold text-foreground">
-                  {update.title}
-                </span>
-              )}
+              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                {update.href ? (
+                  <a
+                    href={update.href}
+                    target={update.external ? '_blank' : undefined}
+                    rel={update.external ? 'noopener noreferrer' : undefined}
+                    className={cn(
+                      'text-sm font-semibold text-foreground inline-flex items-center gap-1',
+                      'hover:text-amber-200 transition-colors',
+                    )}
+                  >
+                    {update.title}
+                    <ArrowUpRight className="size-3.5 shrink-0" aria-hidden />
+                  </a>
+                ) : (
+                  <span className="text-sm font-semibold text-foreground">
+                    {update.title}
+                  </span>
+                )}
+                {update.author && (
+                  <span className="text-xs text-muted-foreground">
+                    by {update.author}
+                  </span>
+                )}
+              </div>
             </div>
             <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
               {update.bullets.map((bullet) => (
