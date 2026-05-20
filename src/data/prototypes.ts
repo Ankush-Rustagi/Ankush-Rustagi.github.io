@@ -39,6 +39,10 @@ export interface Prototype {
   status: PrototypeStatus
   createdDate: string
   modifiedDate: string
+  /** Display name for who originated the artifact. */
+  createdBy: string
+  /** Display name for who last meaningfully updated the artifact. */
+  lastModifiedBy: string
   gradient: GradientTheme
   tags?: string[]
   external?: boolean
@@ -75,6 +79,8 @@ export const prototypes: Prototype[] = [
     status: 'live',
     createdDate: '2026-05-15',
     modifiedDate: '2026-05-18',
+    createdBy: 'Ankush Rustagi',
+    lastModifiedBy: 'Ankush Rustagi',
     gradient: 'maps',
     tags: ['maps', 'navigation', 'ia', 'command'],
     featured: true,
@@ -90,6 +96,8 @@ export const prototypes: Prototype[] = [
     status: 'live',
     createdDate: '2026-05-18',
     modifiedDate: '2026-05-18',
+    createdBy: 'Ankush Rustagi',
+    lastModifiedBy: 'Ankush Rustagi',
     gradient: 'maps',
     tags: ['sites', 'customers', 'hierarchy', 'command'],
     featured: true,
@@ -105,6 +113,8 @@ export const prototypes: Prototype[] = [
     status: 'live',
     createdDate: '2026-05-19',
     modifiedDate: '2026-05-20',
+    createdBy: 'Ankush Rustagi',
+    lastModifiedBy: 'Vivien Ding',
     gradient: 'analytics',
     tags: ['analytics', 'charts', 'highcharts', 'visx', 'command', 'storybook'],
     external: true,
@@ -121,6 +131,8 @@ export const prototypes: Prototype[] = [
     status: 'live',
     createdDate: '2026-05-04',
     modifiedDate: '2026-05-10',
+    createdBy: 'Ankush Rustagi',
+    lastModifiedBy: 'Ankush Rustagi',
     gradient: 'cursor',
     tags: ['cursor', 'llm', 'cost', 'analytics'],
     external: true,
@@ -136,6 +148,8 @@ export const prototypes: Prototype[] = [
     status: 'live',
     createdDate: '2026-05-14',
     modifiedDate: '2026-05-18',
+    createdBy: 'Ankush Rustagi',
+    lastModifiedBy: 'Ankush Rustagi',
     gradient: 'floorplans',
     tags: ['floorplans', 'maps', 'geo', 'vatlas'],
     image: '/project-headers/floorplans-geo-field-inventory.png',
@@ -150,6 +164,8 @@ export const prototypes: Prototype[] = [
     status: 'live',
     createdDate: '2026-04-27',
     modifiedDate: '2026-05-18',
+    createdBy: 'Ankush Rustagi',
+    lastModifiedBy: 'Ankush Rustagi',
     gradient: 'hex',
     tags: ['hex', 'design-system', 'tokens', 'color'],
     image: '/project-headers/hex-styling-configurator.png',
@@ -164,6 +180,8 @@ export const prototypes: Prototype[] = [
     status: 'live',
     createdDate: '2026-04-22',
     modifiedDate: '2026-05-18',
+    createdBy: 'Ankush Rustagi',
+    lastModifiedBy: 'Ankush Rustagi',
     gradient: 'router',
     tags: ['agents', 'ai', 'routing', 'workspace'],
     image: '/project-headers/agents-md-router-map.png',

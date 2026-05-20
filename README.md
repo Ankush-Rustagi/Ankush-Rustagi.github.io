@@ -50,7 +50,8 @@ Each prototype is a row in `src/data/prototypes.ts`. To add one:
 - `href` — relative path (`/chart-demo/`) for hosted prototypes, or a full URL for external links
 - `category` — one of: `canvas`, `storybook`, `dashboard`, `prototype`, `tool`, `writeup`
 - `status` — one of: `live`, `wip`, `archived`
-- `date` — ISO date (`YYYY-MM-DD`) of last meaningful update
+- `createdDate` / `modifiedDate` — ISO dates (`YYYY-MM-DD`)
+- `createdBy` / `lastModifiedBy` — display names shown on each card
 - `tags` — optional array of short labels
 - `external` — set to `true` if `href` points off-site (opens in new tab)
 

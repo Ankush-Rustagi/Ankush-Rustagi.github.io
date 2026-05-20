@@ -147,24 +147,30 @@ function ProjectCard({ p, featured = false }: ProjectCardProps) {
           </CardContent>
         )}
 
-        <CardFooter className="mt-auto pt-3 pb-5 flex flex-col items-stretch gap-2">
-          <div className="flex items-center justify-between text-[11px] text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <span className="text-muted-foreground/60">Created</span>
-              <time dateTime={p.createdDate}>{formatDate(p.createdDate)}</time>
-            </span>
+        <CardFooter className="mt-auto pt-3 pb-5 flex flex-col items-stretch gap-2.5">
+          <div className="flex items-start justify-between gap-2 text-[11px] text-muted-foreground">
+            <div className="min-w-0 space-y-0.5">
+              <div className="flex flex-wrap items-baseline gap-x-1.5 gap-y-0">
+                <span className="text-muted-foreground/60 shrink-0">Creator</span>
+                <span className="text-foreground/90 font-medium">{p.createdBy}</span>
+              </div>
+              <time dateTime={p.createdDate} className="text-muted-foreground/80">
+                {formatDate(p.createdDate)}
+              </time>
+            </div>
             <ArrowUpRight
-              className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               aria-hidden
             />
           </div>
-          <div className="flex items-center justify-between text-[11px] text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <span className="text-muted-foreground/60">Modified</span>
-              <time dateTime={p.modifiedDate}>
-                {formatDate(p.modifiedDate)}
-              </time>
-            </span>
+          <div className="text-[11px] text-muted-foreground min-w-0 space-y-0.5">
+            <div className="flex flex-wrap items-baseline gap-x-1.5 gap-y-0">
+              <span className="text-muted-foreground/60 shrink-0">Last modified by</span>
+              <span className="text-foreground/90 font-medium">{p.lastModifiedBy}</span>
+            </div>
+            <time dateTime={p.modifiedDate} className="text-muted-foreground/80">
+              {formatDate(p.modifiedDate)}
+            </time>
           </div>
         </CardFooter>
       </Card>
@@ -184,6 +190,8 @@ function App() {
       const haystack = [
         p.title,
         p.description,
+        p.createdBy,
+        p.lastModifiedBy,
         ...(p.tags ?? []),
         CATEGORY_LABELS[p.category],
       ]
@@ -212,13 +220,13 @@ function App() {
     <main className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <header className="mb-12">
         <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-3">
-          Ankush Rustagi
+          Verkada PM Team
         </p>
         <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight max-w-2xl mb-4">
           PM work, made interactive.
         </h1>
         <p className="text-lg text-muted-foreground max-w-prose">
-          Audits, analysis tools, and design canvases from a tokenmaxxing PM.
+          Audits, analysis tools, and design canvases from token-maxxing PMs.
         </p>
         <p className="text-lg text-muted-foreground max-w-prose">
           Built in React so anyone can dig in.
