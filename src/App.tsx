@@ -17,6 +17,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { UpdatesBanner } from "@/components/UpdatesBanner"
 import { cn } from "@/lib/utils"
 
 const CATEGORY_LABELS: Record<PrototypeCategory, string> = {
@@ -223,6 +224,8 @@ function App() {
           Built in React so anyone can dig in.
         </p>
       </header>
+
+      <UpdatesBanner />
 
       {prototypes.length === 0 ? (
         <Card className="border-dashed">
