@@ -136,6 +136,7 @@ export const prototypes: Prototype[] = [
     gradient: 'cursor',
     tags: ['mcp', 'access-control', 'api', 'docs-vibes', 'command'],
     featured: true,
+    image: '/project-headers/verkada-ac-mcp.png',
   },
   {
     slug: 'cursor-margin-analysis',
