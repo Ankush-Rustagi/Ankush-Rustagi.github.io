@@ -118,7 +118,6 @@ export const prototypes: Prototype[] = [
     gradient: 'analytics',
     tags: ['analytics', 'charts', 'highcharts', 'visx', 'command', 'storybook'],
     external: true,
-    featured: true,
     image: '/project-headers/verity-charts-playground.png',
   },
   {
