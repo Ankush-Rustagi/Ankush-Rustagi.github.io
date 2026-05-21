@@ -171,6 +171,21 @@ export const prototypes: Prototype[] = [
     image: '/project-headers/hex-styling-configurator.png',
   },
   {
+    slug: 'verkada-ac-mcp',
+    title: 'Access Control MCP',
+    description:
+      'Hub page for Jake Leichtling\'s custom Access Control MCP server: 24 tools on Verkada public APIs, use cases, architecture, and setup. Source in docs-vibes/35-custom-ac-mcp.',
+    href: '/verkada-ac-mcp/',
+    category: 'tool',
+    status: 'live',
+    createdDate: '2026-05-20',
+    modifiedDate: '2026-05-20',
+    createdBy: 'Jake Leichtling',
+    lastModifiedBy: 'Ankush Rustagi',
+    gradient: 'cursor',
+    tags: ['mcp', 'access-control', 'cursor', 'api', 'docs-vibes'],
+  },
+  {
     slug: 'agents-md-router-map',
     title: 'AGENTS.md Workflow Router',
     description:
