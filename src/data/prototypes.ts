@@ -122,6 +122,22 @@ export const prototypes: Prototype[] = [
     image: '/project-headers/verity-charts-playground.png',
   },
   {
+    slug: 'verkada-ac-mcp',
+    title: 'Access Control MCP',
+    description:
+      'PM hub for Jake Leichtling\'s Access Control MCP server: 24 tools on public APIs, use-case flows, architecture, and setup. Works with Cursor, Claude Desktop, Copilot, and other local MCP hosts.',
+    href: '/verkada-ac-mcp/',
+    category: 'tool',
+    status: 'live',
+    createdDate: '2026-05-20',
+    modifiedDate: '2026-05-20',
+    createdBy: 'Jake Leichtling',
+    lastModifiedBy: 'Ankush Rustagi',
+    gradient: 'cursor',
+    tags: ['mcp', 'access-control', 'api', 'docs-vibes', 'command'],
+    featured: true,
+  },
+  {
     slug: 'cursor-margin-analysis',
     title: 'Cursor Enterprise Cost Dashboard',
     description:
@@ -169,21 +185,6 @@ export const prototypes: Prototype[] = [
     gradient: 'hex',
     tags: ['hex', 'design-system', 'tokens', 'color'],
     image: '/project-headers/hex-styling-configurator.png',
-  },
-  {
-    slug: 'verkada-ac-mcp',
-    title: 'Access Control MCP',
-    description:
-      'Hub page for Jake Leichtling\'s custom Access Control MCP server: 24 tools on Verkada public APIs, use cases, architecture, and setup. Source in docs-vibes/35-custom-ac-mcp.',
-    href: '/verkada-ac-mcp/',
-    category: 'tool',
-    status: 'live',
-    createdDate: '2026-05-20',
-    modifiedDate: '2026-05-20',
-    createdBy: 'Jake Leichtling',
-    lastModifiedBy: 'Ankush Rustagi',
-    gradient: 'cursor',
-    tags: ['mcp', 'access-control', 'cursor', 'api', 'docs-vibes'],
   },
   {
     slug: 'agents-md-router-map',

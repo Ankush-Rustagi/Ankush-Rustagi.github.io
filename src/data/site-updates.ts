@@ -4,6 +4,7 @@
  */
 export const lastSiteEditDate = '2026-05-18'
 
+/** Newest first. Two-up grid on md+ when multiple entries. */
 export interface SiteUpdate {
   date: string
   title: string
@@ -15,6 +16,17 @@ export interface SiteUpdate {
 }
 
 export const siteUpdates: SiteUpdate[] = [
+  {
+    date: '2026-05-20',
+    title: 'Access Control MCP (PM Hub)',
+    author: 'Jake Leichtling',
+    href: '/verkada-ac-mcp/',
+    bullets: [
+      'Interactive hub for Jake Leichtling\'s custom Access Control MCP: 24 tools on Verkada public APIs.',
+      'Home, tool inventory, technical architecture, and setup tabs with use-case flows and copy-paste install.',
+      'Works with any local AI assistant (Cursor, Claude Desktop, Copilot, and other MCP hosts).',
+    ],
+  },
   {
     date: '2026-05-20',
     title: 'Command Analytics Charts (Storybook)',

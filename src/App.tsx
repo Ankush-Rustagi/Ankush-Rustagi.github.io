@@ -342,7 +342,7 @@ function App() {
                   Featured
                 </h2>
                 <span className="text-xs text-muted-foreground">
-                  Anchor projects for Maps 2.0, customer site structure, and Command analytics charts.
+                  Anchor projects for Maps 2.0, site hierarchy, Command analytics charts, and Access Control MCP.
                 </span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

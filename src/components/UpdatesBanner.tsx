@@ -30,9 +30,15 @@ export function UpdatesBanner() {
         </p>
       </div>
 
-      <ul className="space-y-5">
+      <ul
+        className={cn(
+          siteUpdates.length > 1
+            ? 'grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8'
+            : 'space-y-5',
+        )}
+      >
         {siteUpdates.map((update) => (
-          <li key={`${update.date}-${update.title}`}>
+          <li key={`${update.date}-${update.title}`} className="min-w-0">
             <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-2">
               <time
                 dateTime={update.date}
