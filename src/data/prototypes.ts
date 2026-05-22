@@ -70,6 +70,22 @@ export const GRADIENTS: Record<GradientTheme, string> = {
 
 export const prototypes: Prototype[] = [
   {
+    slug: 'maps-2-0-editor-experience',
+    title: 'Maps 2.0 Editor Experience',
+    description:
+      'Interactive editor prototype for Verkada Maps 2.0. Click through 14 edit-mode states — Manage Maps home, structural tools, device placement, FOV adjust, cable paths, and scale/align — on top of the Navigation Audit IA.',
+    href: '/maps-2-0-editor-experience/',
+    category: 'canvas',
+    status: 'live',
+    createdDate: '2026-05-22',
+    modifiedDate: '2026-05-22',
+    createdBy: 'Azalea Phangsoa',
+    lastModifiedBy: 'Azalea Phangsoa',
+    gradient: 'maps',
+    tags: ['maps', 'editor', 'floorplans', 'command', 'ia'],
+    featured: true,
+  },
+  {
     slug: 'vds-color-updates-2026',
     title: 'VDS Color Migration Guide',
     description:

@@ -18,6 +18,17 @@ export interface SiteUpdate {
 export const siteUpdates: SiteUpdate[] = [
   {
     date: '2026-05-22',
+    title: 'Maps 2.0 Editor Experience',
+    author: 'Azalea Phangsoa',
+    href: '/maps-2-0-editor-experience/',
+    bullets: [
+      'Interactive editor prototype: 14 editor states covering Manage Maps home, structural tools, device stamp, FOV adjust, and scale/align.',
+      'Three-panel edit layout: floor context left, tool strip + canvas center, tools/devices/properties right.',
+      'Built from Azalea\'s Cursor canvas; extends the Navigation Audit IA with Maps v1 PRD M2 editor MVP scope.',
+    ],
+  },
+  {
+    date: '2026-05-22',
     title: 'VDS Color System v2 Rollout',
     author: 'Ankush Rustagi',
     href: 'https://ankush-rustagi.github.io/vds-color-updates-2026/?path=/docs/intro-to-color-v2-strategy--docs',
