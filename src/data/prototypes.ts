@@ -117,7 +117,6 @@ export const prototypes: Prototype[] = [
     lastModifiedBy: 'Ankush Rustagi',
     gradient: 'maps',
     tags: ['sites', 'customers', 'hierarchy', 'command'],
-    featured: true,
     image: '/project-headers/global-site-hierarchy.png',
   },
   {
