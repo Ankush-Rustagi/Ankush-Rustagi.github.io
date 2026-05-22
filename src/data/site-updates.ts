@@ -2,7 +2,7 @@
  * Changelog surfaced on the portfolio home page banner.
  * lastSiteEditDate: last hub deploy before this batch (used in the banner header).
  */
-export const lastSiteEditDate = '2026-05-20'
+export const lastSiteEditDate = '2026-05-22'
 
 /** Newest first. Two-up grid on md+ when multiple entries. */
 export interface SiteUpdate {
@@ -16,6 +16,17 @@ export interface SiteUpdate {
 }
 
 export const siteUpdates: SiteUpdate[] = [
+  {
+    date: '2026-05-22',
+    title: 'VDS Color System v2 Rollout',
+    author: 'Ankush Rustagi',
+    href: '/vds-color-v2/',
+    bullets: [
+      'Strategy hub: rollout phases, who-does-what table, and team migration cards for all major product lines.',
+      'Companion Storybook with Alert Button + Checkbox before/after, per-team examples, and token mapping reference.',
+      'Cross-linked at ankush-rustagi.github.io/vds-color-v2/ and vds-color-v2-storybook/.',
+    ],
+  },
   {
     date: '2026-05-21',
     title: 'Command Analytics Charts (Storybook)',
