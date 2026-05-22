@@ -20,11 +20,12 @@ export const siteUpdates: SiteUpdate[] = [
     date: '2026-05-22',
     title: 'VDS Color System v2 Rollout',
     author: 'Ankush Rustagi',
-    href: '/vds-color-v2/',
+    href: 'https://ankush-rustagi.github.io/vds-color-updates-2026/?path=/docs/intro-to-color-v2-strategy--docs',
+    external: true,
     bullets: [
-      'Strategy hub: rollout phases, who-does-what table, and team migration cards for all major product lines.',
-      'Companion Storybook with Alert Button + Checkbox before/after, per-team examples, and token mapping reference.',
-      'Cross-linked at ankush-rustagi.github.io/vds-color-v2/ and vds-color-v2-storybook/.',
+      'Single Storybook site: strategy, rollout phases, who-does-what, migration guides, and team examples.',
+      'TokenExplorer reference for 566 semantic tokens plus Alert Button and Checkbox before/after patterns.',
+      'Vibe design assets live in docs-vibes 17-ux-design (DESIGN.md, Claude Design setup, Verity handoff).',
     ],
   },
   {

@@ -70,27 +70,11 @@ export const GRADIENTS: Record<GradientTheme, string> = {
 
 export const prototypes: Prototype[] = [
   {
-    slug: 'vds-color-v2',
-    title: 'VDS Color v2 Rollout',
-    description:
-      'Strategy hub for the VDS Color v2 migration: rollout phases, who does what by role, and team migration cards for every product line. Links to the companion Storybook for hands-on guides.',
-    href: '/vds-color-v2/',
-    category: 'writeup',
-    status: 'live',
-    createdDate: '2026-05-22',
-    modifiedDate: '2026-05-22',
-    createdBy: 'Ankush Rustagi',
-    lastModifiedBy: 'Ankush Rustagi',
-    gradient: 'hex',
-    tags: ['design-system', 'vds', 'tokens', 'color', 'rollout'],
-    featured: true,
-  },
-  {
-    slug: 'vds-color-v2-storybook',
+    slug: 'vds-color-updates-2026',
     title: 'VDS Color Migration Guide',
     description:
-      'Storybook for VDS Color v2: migration MDX guides, Alert Button and Checkbox before/after stories, per-product-line team examples, and semantic token reference.',
-    href: 'https://ankush-rustagi.github.io/vds-color-v2-storybook/?path=/docs/foundations-color-v2-overview--docs',
+      'Storybook for VDS Color v2: strategy and rollout, migration guides, Alert Button and Checkbox before/after demos, TokenExplorer reference (566 semantic tokens), and per-product-line team examples.',
+    href: 'https://ankush-rustagi.github.io/vds-color-updates-2026/?path=/docs/color-v2-updates-overview--docs',
     category: 'storybook',
     status: 'live',
     createdDate: '2026-05-22',
@@ -100,6 +84,7 @@ export const prototypes: Prototype[] = [
     gradient: 'hex',
     tags: ['design-system', 'vds', 'tokens', 'storybook', 'migration'],
     external: true,
+    featured: true,
   },
   {
     slug: 'maps-2-0-nav-audit',
