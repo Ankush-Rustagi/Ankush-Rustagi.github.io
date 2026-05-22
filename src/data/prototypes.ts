@@ -85,6 +85,7 @@ export const prototypes: Prototype[] = [
     tags: ['design-system', 'vds', 'tokens', 'storybook', 'migration'],
     external: true,
     featured: true,
+    image: '/project-headers/vds-color-updates-2026.png',
   },
   {
     slug: 'maps-2-0-nav-audit',
