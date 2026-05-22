@@ -187,22 +187,6 @@ export const prototypes: Prototype[] = [
     image: '/project-headers/floorplans-geo-field-inventory.png',
   },
   {
-    slug: 'hex-styling-configurator',
-    title: 'HEX Brand Token Configurator',
-    description:
-      'Interactive configurator mapping Verkada\'s brand color system to Command UI tokens. Five product-line palettes (20 colors each) with live component preview and copy-ready token export.',
-    href: '/hex-styling-configurator/',
-    category: 'tool',
-    status: 'live',
-    createdDate: '2026-04-27',
-    modifiedDate: '2026-05-18',
-    createdBy: 'Ankush Rustagi',
-    lastModifiedBy: 'Ankush Rustagi',
-    gradient: 'hex',
-    tags: ['hex', 'design-system', 'tokens', 'color'],
-    image: '/project-headers/hex-styling-configurator.png',
-  },
-  {
     slug: 'agents-md-router-map',
     title: 'AGENTS.md Workflow Router',
     description:
