@@ -17,39 +17,25 @@ export interface SiteUpdate {
 
 export const siteUpdates: SiteUpdate[] = [
   {
-    date: '2026-05-22',
-    title: 'Maps 2.0 Editor Experience',
-    author: 'Azalea Phangsoa',
-    href: '/maps-2-0-editor-experience/',
+    date: '2026-05-26',
+    title: 'Verkada Maps IA Prototype',
+    author: 'Zack Baumel',
+    href: '/zack-maps-prototype/',
     bullets: [
-      'Interactive editor prototype: 14 editor states covering Manage Maps home, structural tools, device stamp, FOV adjust, and scale/align.',
-      'Three-panel edit layout: floor context left, tool strip + canvas center, tools/devices/properties right.',
-      'Built from Azalea\'s Cursor canvas; extends the Navigation Audit IA with Maps v1 PRD M2 editor MVP scope.',
+      'Long-lived design exploration for Verkada Maps 2.0: 18+ state machine (press S to jump between states), real Mapbox basemap with light and dark Verkada styles, and donut cluster tokens that aggregate device counts by location.',
+      'Homegrown polygon drawer powers both location perimeters (state X) and per-floor layout crops (state Z); the floorplan image is a DOM overlay reprojected each frame so CSS clip-path actually works on a Mapbox map.',
+      'Mock-data only: 6 seeded Bay Area locations, an empty/seeded toggle, and a States sidebar for jumping between every flow without touching real Command data.',
     ],
   },
   {
     date: '2026-05-22',
-    title: 'VDS Color System v2 Rollout',
-    author: 'Ankush Rustagi',
-    href: 'https://ankush-rustagi.github.io/vds-color-updates-2026/?path=/docs/intro-to-color-v2-strategy--docs',
-    external: true,
+    title: 'Firmware Update Scheduler',
+    author: 'Zack Baumel',
+    href: '/zack-firmware-scheduler/',
     bullets: [
-      'Single Storybook site: strategy, rollout phases, who-does-what, migration guides, and team examples.',
-      'TokenExplorer reference for 566 semantic tokens plus Alert Button and Checkbox before/after patterns.',
-      'Vibe design assets live in docs-vibes 17-ux-design (DESIGN.md, Claude Design setup, Verity handoff).',
-    ],
-  },
-  {
-    date: '2026-05-21',
-    title: 'Command Analytics Charts (Storybook)',
-    author: 'Vivien Ding',
-    href: 'https://ankush-rustagi.github.io/verity-charts-playground/?path=/docs/release-notes--docs',
-    external: true,
-    bullets: [
-      'Doc-27 r6 polish: Open Sans typography, refined Verkada color tokens, and xBands/yZones naming aligned to the design system spec.',
-      'Centralized Storybook controls (argTypes.ts): axis titles, color palettes, PieDonut innerRadius size tokens, and threshold wiring.',
-      'Token refactor (chartColors.ts + verkadaTokens.ts) drives all palette assignments across 40+ stories.',
-      'After Verity chart dimensions matched to original visx sizes; ScheduleChart inactive segments use neutral-75.',
+      'Admin-console prototype for scheduling Verkada firmware rollouts across regions, sites, and device families (cameras, access control, sensors), with per-site overrides of the org-wide default window.',
+      'Custom schedule per device family: day-of-week picker, start and end time windows, and per-site time-zone selection so rollouts can hit the same local clock everywhere.',
+      'Dev-tools panel toggles between Admin homepage variants and firmware-management states and flips the schedule layout between Cards and Rows for design exploration.',
     ],
   },
 ]
