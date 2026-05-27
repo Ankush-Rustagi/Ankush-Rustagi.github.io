@@ -204,6 +204,36 @@ export const prototypes: Prototype[] = [
     image: '/project-headers/floorplans-geo-field-inventory.png',
   },
   {
+    slug: 'zack-maps-prototype',
+    title: 'Verkada Maps IA Prototype',
+    description:
+      'Interactive playground for Verkada Maps 2.0: 18+ state machine, Mapbox basemap, donut cluster tokens, perimeter and crop drawers, and a DOM-projected floorplan overlay. Mock-data only.',
+    href: '/zack-maps-prototype/',
+    category: 'prototype',
+    status: 'live',
+    createdDate: '2026-05-22',
+    modifiedDate: '2026-05-26',
+    createdBy: 'Zack Baumel',
+    lastModifiedBy: 'Zack Baumel',
+    gradient: 'maps',
+    tags: ['maps', 'mapbox', 'floorplans', 'prototype'],
+  },
+  {
+    slug: 'zack-firmware-scheduler',
+    title: 'Firmware Update Scheduler',
+    description:
+      'Admin-console prototype for scheduling Verkada firmware rollouts. Cards or rows layout, dev-tools panel for jumping between admin homepage and firmware-management states.',
+    href: '/zack-firmware-scheduler/',
+    category: 'prototype',
+    status: 'live',
+    createdDate: '2026-05-22',
+    modifiedDate: '2026-05-22',
+    createdBy: 'Zack Baumel',
+    lastModifiedBy: 'Zack Baumel',
+    gradient: 'router',
+    tags: ['firmware', 'admin', 'scheduling'],
+  },
+  {
     slug: 'agents-md-router-map',
     title: 'AGENTS.md Workflow Router',
     description:
