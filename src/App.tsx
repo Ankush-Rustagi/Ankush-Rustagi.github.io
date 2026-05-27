@@ -223,10 +223,10 @@ function App() {
           Verkada Product and Design Team
         </p>
         <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight max-w-2xl mb-4">
-          Product work made interactive.
+          Product work, made interactive.
         </h1>
         <p className="text-lg text-muted-foreground max-w-prose">
-          Audits, analysis tools, and design canvases from token-maxxing PMs &amp; UX Designers @ Verkada.
+          Audits, analysis tools, and design canvases from token-maxxing PMs &amp; UX Designers.
         </p>
         <p className="text-lg text-muted-foreground max-w-prose">
           Built in React so anyone can dig in.
