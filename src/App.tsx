@@ -226,7 +226,7 @@ function App() {
           Product work made interactive.
         </h1>
         <p className="text-lg text-muted-foreground max-w-prose">
-          Audits, analysis tools, and design canvases from token-maxxing PMs and designers.
+          Audits, analysis tools, and design canvases from token-maxxing PMs &amp; UX Designers @ Verkada.
         </p>
         <p className="text-lg text-muted-foreground max-w-prose">
           Built in React so anyone can dig in.
