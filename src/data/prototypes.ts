@@ -70,6 +70,39 @@ export const GRADIENTS: Record<GradientTheme, string> = {
 
 export const prototypes: Prototype[] = [
   {
+    slug: 'zack-maps-prototype',
+    title: 'Verkada Maps IA Prototype',
+    description:
+      'Interactive playground for Verkada Maps 2.0: 18+ state machine, Mapbox basemap, donut cluster tokens, perimeter and crop drawers, and a DOM-projected floorplan overlay. Mock-data only.',
+    href: '/zack-maps-prototype/',
+    category: 'prototype',
+    status: 'live',
+    createdDate: '2026-05-22',
+    modifiedDate: '2026-05-26',
+    createdBy: 'Zack Baumel',
+    lastModifiedBy: 'Zack Baumel',
+    gradient: 'maps',
+    tags: ['maps', 'mapbox', 'floorplans', 'prototype'],
+    featured: true,
+    image: '/project-headers/zack-maps-prototype.jpg',
+  },
+  {
+    slug: 'zack-firmware-scheduler',
+    title: 'Firmware Update Scheduler',
+    description:
+      'Admin-console prototype for scheduling Verkada firmware rollouts. Cards or rows layout, dev-tools panel for jumping between admin homepage and firmware-management states.',
+    href: '/zack-firmware-scheduler/',
+    category: 'prototype',
+    status: 'live',
+    createdDate: '2026-05-22',
+    modifiedDate: '2026-05-22',
+    createdBy: 'Zack Baumel',
+    lastModifiedBy: 'Zack Baumel',
+    gradient: 'router',
+    tags: ['firmware', 'admin', 'scheduling'],
+    featured: true,
+  },
+  {
     slug: 'maps-2-0-editor-experience',
     title: 'Maps 2.0 Editor Experience',
     description:
@@ -83,7 +116,6 @@ export const prototypes: Prototype[] = [
     lastModifiedBy: 'Azalea Phangsoa',
     gradient: 'maps',
     tags: ['maps', 'editor', 'floorplans', 'command', 'ia'],
-    featured: true,
   },
   {
     slug: 'vds-color-updates-2026',
@@ -100,7 +132,6 @@ export const prototypes: Prototype[] = [
     gradient: 'hex',
     tags: ['design-system', 'vds', 'tokens', 'storybook', 'migration'],
     external: true,
-    featured: true,
     image: '/project-headers/vds-color-updates-2026.png',
   },
   {
@@ -117,7 +148,6 @@ export const prototypes: Prototype[] = [
     lastModifiedBy: 'Ankush Rustagi',
     gradient: 'maps',
     tags: ['maps', 'navigation', 'ia', 'command'],
-    featured: true,
     image: '/project-headers/maps-2-0-nav-audit.png',
   },
   {
@@ -202,36 +232,6 @@ export const prototypes: Prototype[] = [
     gradient: 'floorplans',
     tags: ['floorplans', 'maps', 'geo', 'vatlas'],
     image: '/project-headers/floorplans-geo-field-inventory.png',
-  },
-  {
-    slug: 'zack-maps-prototype',
-    title: 'Verkada Maps IA Prototype',
-    description:
-      'Interactive playground for Verkada Maps 2.0: 18+ state machine, Mapbox basemap, donut cluster tokens, perimeter and crop drawers, and a DOM-projected floorplan overlay. Mock-data only.',
-    href: '/zack-maps-prototype/',
-    category: 'prototype',
-    status: 'live',
-    createdDate: '2026-05-22',
-    modifiedDate: '2026-05-26',
-    createdBy: 'Zack Baumel',
-    lastModifiedBy: 'Zack Baumel',
-    gradient: 'maps',
-    tags: ['maps', 'mapbox', 'floorplans', 'prototype'],
-  },
-  {
-    slug: 'zack-firmware-scheduler',
-    title: 'Firmware Update Scheduler',
-    description:
-      'Admin-console prototype for scheduling Verkada firmware rollouts. Cards or rows layout, dev-tools panel for jumping between admin homepage and firmware-management states.',
-    href: '/zack-firmware-scheduler/',
-    category: 'prototype',
-    status: 'live',
-    createdDate: '2026-05-22',
-    modifiedDate: '2026-05-22',
-    createdBy: 'Zack Baumel',
-    lastModifiedBy: 'Zack Baumel',
-    gradient: 'router',
-    tags: ['firmware', 'admin', 'scheduling'],
   },
   {
     slug: 'agents-md-router-map',
