@@ -101,6 +101,7 @@ export const prototypes: Prototype[] = [
     gradient: 'router',
     tags: ['firmware', 'admin', 'scheduling'],
     featured: true,
+    image: '/project-headers/zack-firmware-scheduler.jpg',
   },
   {
     slug: 'maps-2-0-editor-experience',
